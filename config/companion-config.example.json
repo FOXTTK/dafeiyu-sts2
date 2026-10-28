@@ -1,0 +1,68 @@
+{
+  "displayName": "蓝色大肥鱼",
+  "language": "zh",
+  "activeProvider": "deepseek",
+  "providerSchemaVersion": 3,
+  "web": {
+    "port": 17788
+  },
+  "worlds": {
+    "desktop-pet": {
+      "user": "搭档",
+      "skin": {
+        "figure": "whale",
+        "scheme": "deepseek",
+        "palette": "mint",
+        "head": "none",
+        "side": "none",
+        "glasses": "none",
+        "neck": "none",
+        "colors": {
+          "head": {
+            "main": "body",
+            "acc": "eye"
+          },
+          "side": {
+            "main": "eye",
+            "acc": "eye"
+          },
+          "glasses": {
+            "main": "body",
+            "acc": "eye"
+          },
+          "neck": {
+            "main": "eye",
+            "acc": "eye"
+          }
+        }
+      },
+      "roam": "calm",
+      "asr": {
+        "enabled": false
+      },
+      "hoverButtons": "chat",
+      "theme": "dark",
+      "statusBubble": true,
+      "saidBubbles": true,
+      "window": {
+        "enabled": true,
+        "scale": 1.8,
+        "bubbleSize": 1.4,
+        "fontSize": 1.2,
+        "frameRate": 60,
+        "exportOverlay": true
+      },
+      "port": 7797,
+      "touch": {
+        "enabled": true,
+        "wakeOn": "poke"
+      }
+    },
+    "sts-2": {
+      "enabled": true
+    }
+  },
+  "tick": {
+    "intervalMinutes": 2
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "tools": [
+    {
+      "name": "sts2_observe",
+      "description": "读取当前的游戏局面:在哪个画面、手牌、敌人血量与意图、能量、格挡、楼层血量金币。同时给出此刻可以执行的动作清单。每回合开始时读一次;动作回执里已经带了新状态时不用再读。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string",
+            "enum": ["decision", "full"],
+            "description": "decision 只给做决定需要的(默认);full 另带牌堆张数与更多原始字段。"
+          }
+        },
+        "additionalProperties": false
+      },
+      "tags": ["read", "snapshot"],
+      "summary": {
+        "zh": "读取当前局面与可选动作。",
+        "en": "Reads the current board and the actions available now."
+      }
+    },
+    {
+      "name": "sts2_do",
+      "description": "执行一个游戏动作并等它结算。动作名取自上次观察的 available_actions。出牌要同时给 card_index;需要指定敌人的牌再给 target_index。每次只做一个动作,回执会带上执行后的新状态,下一步直接照着回执做。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "动作名,如 play_card / end_turn / play 之类。从 available_actions 里挑。"
+          },
+          "card_index": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "手牌位置,0 是第一张。出牌类动作必给。"
+          },
+          "target_index": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "敌人位置,0 是最左边那个。牌要指定目标时给。"
+          },
+          "option_index": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "选项位置:奖励、事件选项、商店货位等都用它。"
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "兜底点击的横坐标。只有 click 类动作才用。"
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "兜底点击的纵坐标。"
+          },
+          "tool": {
+            "type": "string",
+            "description": "某些动作需要一个子工具名,如药水相关。看 available_actions 的写法。"
+          },
+          "reason": {
+            "type": "string",
+            "description": "一句话说明为什么这么做。会记进决策日志,也让你自己下一轮知道在想什么。"
+          }
+        },
+        "required": ["action"],
+        "additionalProperties": false
+      },
+      "tags": ["act"],
+      "summary": {
+        "zh": "执行一个游戏动作并等它结算。",
+        "en": "Performs one game action and waits for it to settle."
+      }
+    }
+  ],
+  "events": []
+}

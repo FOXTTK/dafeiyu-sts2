@@ -1,0 +1,23 @@
+# 敏感信息：永不提交 API key、token、cookie
+*.env
+.env
+.env.*
+*.pem
+*.key
+
+# 桌宠运行时产物
+data/
+*.log
+log/
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+.vscode/
+.idea/
+
+# 备份文件
+*.bak
+*.bak-*

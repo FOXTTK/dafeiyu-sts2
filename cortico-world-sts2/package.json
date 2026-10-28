@@ -1,0 +1,31 @@
+{
+  "name": "cortico-world-sts2",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "让 AI 玩杀戮尖塔2。需要游戏内装 STS2-Agent mod 并在悬浮窗里打开 MCP / HTTP 接口。",
+  "locales": {
+    "en": {
+      "description": "Slay the Spire 2 World for Cortico. Needs the STS2-Agent mod running in the game."
+    }
+  },
+  "keywords": [
+    "cortico-world",
+    "cortico",
+    "slay-the-spire",
+    "sts2"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./src/index.ts",
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "describe": "describe.json"
+  },
+  "files": [
+    "src",
+    "describe.json"
+  ],
+  "license": "MIT"
+}
